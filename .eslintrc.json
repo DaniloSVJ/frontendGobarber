@@ -12,7 +12,10 @@
 
         "prettier/flowtype",
         "prettier/react",
-        "prettier/standard"
+        "prettier/standard",
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -30,7 +33,8 @@
         "react",
 				"react-hooks",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "import"
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
@@ -60,7 +64,13 @@
               "tsx": "never"
             }
          ],
-         "react/jsx-one-expression-per-line": "off"
+         "react/jsx-one-expression-per-line": "off",
+         "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+         "import/named": 2,
+         "import/namespace": 2,
+         "import/default": 2,
+         "import/export": 2
+
     },
     "settings": {
         "import/resolver": {
