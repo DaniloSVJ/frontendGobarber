@@ -53,6 +53,7 @@ export const Content = styled.div`
 
 export const Background = styled.div`
     flex: 1;
+    background-color: #e0ffff;
     background: url(${signUpBackground}) no-repeat center;
     background-size: cover;
 `;

@@ -8,12 +8,14 @@ import logoImg from '../../assets/logo.svg';
 import { Container, Content, Background } from './styles';
 import Input from '../../components/input';
 import Button from '../../components/button';
+import getValidationsErros from '../../utils/getValidationsErros';
 
 const SignUp: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
 
     const handleSubmit = useCallback(async (data: object) => {
         try {
+            formRef.current?.setErrors({});
             const schema = Yup.object().shape({
                 //  const schema = Yup.object().shape({
 
@@ -32,9 +34,8 @@ const SignUp: React.FC = () => {
             });
         } catch (err) {
             console.log(err);
-            formRef.current?.setErrors({
-                name: 'Nome Obrigatorio',
-            });
+            const errors = getValidationsErros(err);
+            formRef.current?.setErrors(errors);
         }
     }, []);
     return (
